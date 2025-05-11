@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ffffff;
+	font-family: 'Segoe UI', sans-serif;
+	color: #2e2e2e;
+}
+
+header {
+	background-color: #ffffff;
+	position: sticky;
+	top: 0;
+	border-bottom: 1px solid black;
+}
+
+.main-cta-btn {
+    background-color: #111618;
+    border: 1px solid white;
+    padding: 10px;
+    color: #fff !important;
+    transition: 0.5s;
+    text-decoration: none;
+	font-weight: bold;
+}
+.main-cta-btn:hover {
+    color: black !important;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.top-bar {
+  background-color: #0e0f0f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.quiz-btn {
+  background-color: #6b46c1;
+  color: white;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin-left: 10px;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.quiz-btn:hover {
+  background-color: #5731a9;
+  color: white;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-bottom: 1px solid black;
+}
+
+.sticky-header .container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; 
+  padding: 15px 20px;
+}
+	
+
+.container1 {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+	height: 40px;
+}
+
+.main-btn {
+	overflow:hidden;
+	position:relative;
+}
+.nav-menu .main-btn:hover {
+	color: #212529;
+}
+.nav-menu .main-btn::before {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0%;
+	height: 1px;
+	background-color: #212529;
+	transition: all .7s;
+}
+.nav-menu .main-btn:hover::before {
+	width: 100%;
+}
+
+.nav-menu a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.5s;
+
+}
+
+.nav-menu a:hover {
+  color: #666;
+}
+
+.container-main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: start;
+  
+}
+
+.product-image img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.product-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.product-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.reviews {
+  font-size: 16px;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.divider {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid black;
+}
+
+.add-to-cart {
+  background-color: #4a5a39;
+  color: white;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  margin-top: 10px;
+}
+
+.add-to-cart:hover {
+  background-color: #3c4b2d;
+  transform: scale(1.03);
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.icons div {
+  text-align: center;
+}
+
+.icons img {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 5px;
+}
+
+.product-description {
+  margin-top: 60px;
+    line-height: 1.6;
+  font-size: 16px;
+  color: #444;
+}
+
+.product-description h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #2e2e2e;
+}
+
+.product-description a {
+  color: gray;
+  text-decoration: underline;
+
+}
+.faq-section {
+	background-color: #f7f7f7;
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+
+.faq {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.faq-question {
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* dovoljno za veći sadržaj */
+  padding: 20px;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .icon {
+  transform: rotate(45deg); /* "+" postaje "×" efekat */
+}
+
+
+.footer-section {
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
