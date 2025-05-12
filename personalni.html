@@ -108,18 +108,18 @@
 				<div class="col-md-3">
 					<h5 class="fw-bold">PROGRAMI</h5>
 					<ul class="list-unstyled">
-						<li><a href="#" class="text-dark text-decoration-none">Planovi Treninga</a></li>
-						<li><a href="#" class="text-dark text-decoration-none">Adekvatna Ishrana</a></li>
+						<li><a href="personalni.html" class="text-dark text-decoration-none">Planovi Treninga</a></li>
+						<li><a href="ishrana.html" class="text-dark text-decoration-none">Adekvatna Ishrana</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3">
 					<h5 class="fw-bold">SPONZORI</h5>
 					<ul class="list-unstyled">
-					  <li><a href="#" class="text-dark text-decoration-none">MacroFactor Diet App</a></li>
-					  <li><a href="#" class="text-dark text-decoration-none">Mass Research Review</a></li>
-					  <li><a href="#" class="text-dark text-decoration-none">Rise Gym Gear</a></li>
-					  <li><a href="#" class="text-dark text-decoration-none">PEScience Supplements</a></li>
-					  <li><a href="#" class="text-dark text-decoration-none">Neck Flex</a></li>
+					  <li><a href="https://macrofactorapp.com/macrofactor/#jeff" class="text-dark text-decoration-none">MacroFactor Diet App</a></li>
+					  <li><a href="https://www.strongerbyscience.com/mass/" class="text-dark text-decoration-none">Mass Research Review</a></li>
+					  <li><a href="https://www.risestore.com/blogs/rise/otss-only-the-strong-survive-jeff-nippard-x-rise?ref=jeff&utm_source=athlete&utm_medium=link&utm_campaign=jeff" class="text-dark text-decoration-none">Rise Gym Gear</a></li>
+					  <li><a href="https://pescience.com/" class="text-dark text-decoration-none">PEScience Supplements</a></li>
+					  <li><a href="https://www.theneckflex.com/" class="text-dark text-decoration-none">Neck Flex</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -158,7 +158,8 @@
         const priceText = card.querySelector(".plan-price").innerText;
         const price = parseInt(priceText.replace(/[^0-9]/g, ""));
 
-        // Kreiraj stavku
+	price = price.toFixed(2);
+        
         const selectedPlan = {
           name: planName,
           price: price
