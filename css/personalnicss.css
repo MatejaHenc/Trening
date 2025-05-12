@@ -237,7 +237,35 @@ header {
 .plan-card button:hover {
   background-color: #5731a9;
 }
-
+.cart-icon {
+      position: relative;
+      font-size: 20px;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      padding: 2px 6px;
+    }
+    #cartModal {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 9999;
+      width: 300px;
+    }
+    #cartModal h5 {
+      margin-bottom: 10px;
+    }
 
 
 .footer-section {
