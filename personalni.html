@@ -96,35 +96,52 @@
 	  </div>
 	</section>
 	
-	<section class="plan-details">
-	  <div class="detail-box">
-		<h3>Početni Plan</h3>
-		<p class="short">Idealan za početnike – fokus na pravilnoj tehnici i osnovnim vežbama.</p>
-		<p class="full hidden">Uključuje 3 treninga nedeljno, video tutorijale, plan ishrane i savetovanje.</p>
-		<button class="toggle-detail">Pročitaj više</button>
-	  </div>
-
-	  <div class="detail-box">
-		<h3>Srednji Nivo</h3>
-		<p class="short">Za one sa iskustvom – balansirana rutina i izazovni treninzi.</p>
-		<p class="full hidden">5 treninga nedeljno, napredna progresija, recepti i mesec dana podrške.</p>
-		<button class="toggle-detail">Pročitaj više</button>
-	  </div>
-
-	  <div class="detail-box">
-		<h3>Napredni Plan</h3>
-		<p class="short">Intenzivni treninzi i praćenje napretka u detalje.</p>
-		<p class="full hidden">Personalizovan pristup, 6 treninga nedeljno, 1-na-1 konsultacije, praćenje napretka.</p>
-		<button class="toggle-detail">Pročitaj više</button>
-	  </div>
-
-	  <div class="detail-box">
-		<h3>Elitni Plan</h3>
-		<p class="short">Premium pristup za maksimalne rezultate.</p>
-		<p class="full hidden">Svakodnevno mentorstvo, full body analiza, pristup ekskluzivnim treninzima i resursima.</p>
-		<button class="toggle-detail">Pročitaj više</button>
-	  </div>
-	</section>
+	<div class="cards-container">
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Početni Plan</h3>
+      <div class="card-content">
+        <p>- Fokus na pravilnoj tehnici izvođenja vežbi</p>
+        <p>- 3 strukturisana treninga nedeljno</p>
+        <p>- PDF vodiči za sve vežbe</p>
+        <p>- Osnovne smernice za ishranu</p>
+        <p>- Email podrška u svakom trenutku</p>
+      </div>
+      <button>Prikaži detalje</button>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Srednji Nivo</h3>
+      <div class="card-content">
+        <p>- 4–5 naprednijih treninga nedeljno</p>
+        <p>- Pristup video instrukcijama</p>
+        <p>- Detaljan i balansiran plan ishrane</p>
+        <p>- Podrška sa mesečnom analizom napretka</p>
+        <p>- Idealno za one sa osnovnim iskustvom</p>
+      </div>
+      <button>Prikaži detalje</button>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Napredni Plan</h3>
+      <div class="card-content">
+        <p>- 6 intenzivnih treninga nedeljno</p>
+        <p>- Live konsultacije sa trenerima</p>
+        <p>- Preporuke za suplementaciju</p>
+        <p>- Prioritetna tehnička podrška</p>
+        <p>- Prilagođen plan napretka</p>
+      </div>
+      <button>Prikaži detalje</button>
+    </div>
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Elitni Plan</h3>
+      <div class="card-content">
+        <p>- 7 treninga nedeljno + personalizovani oporavak</p>
+        <p>- 1-na-1 mentorstvo i praćenje</p>
+        <p>- Individualizovana strategija ishrane</p>
+        <p>- Potpuna i neograničena podrška</p>
+        <p>- Maksimalna optimizacija rezultata</p>
+      </div>
+      <button>Prikaži detalje</button>
+    </div>
+  </div>
 
  
 
@@ -174,7 +191,13 @@
       </p>
     </div>
 
-	<script src="planovijs/script.js"></script>
+	<script>
+	function toggleCard(card) {
+      const isActive = card.classList.contains('active');
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+      if (!isActive) card.classList.add('active');
+    }
+	</script>
 
 </body>
 </html>
