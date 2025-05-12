@@ -193,16 +193,36 @@
         <a href="#" class="text-dark text-decoration-none ms-2">Terms of Service</a>
       </p>
     </div>
+
 	<script>
-	document.addEventListener("DOMContentLoaded", () => {
-    const addToCartButtons = document.querySelectorAll(".add-to-cart");
-    addToCartButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            alert("Dugme za dodavanje u korpu je kliknuto!");
-        });
+	document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM is fully loaded.');
+
+  const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  console.log(addToCartButtons); // Proveri da li su dugmadi selektovani
+  
+  addToCartButtons.forEach((button) => {
+    console.log('Dodato dugme:', button);
+    button.addEventListener("click", () => {
+      console.log("Dugme za dodavanje u korpu je kliknuto!");
+      const planName = button.getAttribute("data-name");
+      const priceText = button.getAttribute("data-price");
+      const price = parseFloat(priceText);
+
+      const selectedPlan = {
+        name: planName,
+        price: price
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(selectedPlan);
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert(`"${planName}" dodat u korpu.`);
     });
+  });
 });
-		</script>
+</script>
 
 
 </body>
