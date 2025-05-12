@@ -200,6 +200,7 @@
 
         addToCartButtons.forEach((button) => {
             button.addEventListener("click", () => {
+		console.log("Dugme je kliknuto");
                 const planName = button.getAttribute("data-name");
                 const priceText = button.getAttribute("data-price");
                 const price = parseFloat(priceText);
