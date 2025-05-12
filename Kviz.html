@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta name="google-site-verification" content="UdD1RrIJw3529EOU14GRuUEMn1QZ4RuQ3C_PMyENaWM">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-compatibile" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/kvizcss.css">
+	<script src="https://kit.fontawesome.com/ede9ecb866.js" crossorigin="anonymous"></script>
+	<title>Kviz:Saznaj koji je program za tebe</title>
+</head>
+<body>
+  <h1>Kviz: Pronađi svoj idealan trening plan</h1>
+  <form id="quizForm">
+    <div class="question active" id="q1">
+      <p>1. Koliko si iskusan/na u vežbanju?</p>
+      <label><input type="radio" name="q1" value="a"> Početnik</label>
+      <label><input type="radio" name="q1" value="b"> Povremeni vežbač</label>
+      <label><input type="radio" name="q1" value="c"> Redovan vežbač</label>
+      <label><input type="radio" name="q1" value="d"> Ozbiljan sportista</label>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. Koliko puta nedeljno želiš da treniraš?</p>
+      <label><input type="radio" name="q2" value="a"> 2–3 puta</label>
+      <label><input type="radio" name="q2" value="b"> 4–5 puta</label>
+      <label><input type="radio" name="q2" value="c"> 6 puta</label>
+      <label><input type="radio" name="q2" value="d"> 7 puta + oporavak</label>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Da li ti je potrebna pomoć oko ishrane?</p>
+      <label><input type="radio" name="q3" value="a"> Osnovne smernice</label>
+      <label><input type="radio" name="q3" value="b"> Detaljan plan</label>
+      <label><input type="radio" name="q3" value="d"> Personalizovana ishrana</label>
+      <label><input type="radio" name="q3" value="c"> Saveti o suplementima</label>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. Koji tip podrške ti je potreban?</p>
+      <label><input type="radio" name="q4" value="a"> Email podrška</label>
+      <label><input type="radio" name="q4" value="b"> Saveti i analize</label>
+      <label><input type="radio" name="q4" value="c"> Live konsultacije</label>
+      <label><input type="radio" name="q4" value="d"> 1-na-1 mentorstvo</label>
+    </div>
+
+    <div class="question" id="q5">
+      <p>5. Koji je tvoj cilj?</p>
+      <label><input type="radio" name="q5" value="a"> Naučiti osnove</label>
+      <label><input type="radio" name="q5" value="b"> Napredovati postepeno</label>
+      <label><input type="radio" name="q5" value="c"> Ozbiljna transformacija</label>
+      <label><input type="radio" name="q5" value="d"> Rad sa profesionalcem</label>
+    </div>
+
+    <div class="question" id="q6">
+      <p>6. Koliki budžet si spreman/na da izdvojiš mesečno?</p>
+      <label><input type="radio" name="q6" value="a"> Do $20</label>
+      <label><input type="radio" name="q6" value="b"> Do $40</label>
+      <label><input type="radio" name="q6" value="c"> Do $60</label>
+      <label><input type="radio" name="q6" value="d"> $99 ili više</label>
+    </div>
+  </form>
+
+  <div id="result" class="result" style="display:none"></div>
+
+
+  <script>
+    let current = 1;
+    const total = 6;
+
+    function showQuestion(n) {
+      document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+      const next = document.getElementById(`q${n}`);
+      if (next) next.classList.add('active');
+    }
+
+    function submitQuiz() {
+      const form = document.forms['quizForm'];
+      const answers = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
+      let score = { a: 0, b: 0, c: 0, d: 0 };
+
+      for (let q of answers) {
+        let answer = form[q].value;
+        score[answer]++;
+      }
+
+      let max = Math.max(score.a, score.b, score.c, score.d);
+      let result;
+
+      if (score.a === max) {
+        result = "Tvoj idealan plan je: \n\u{1F449} Početni ($19/mes) - Idealan za početnike.";
+      } else if (score.b === max) {
+        result = "Tvoj idealan plan je: \n\u{1F449} Srednji nivo ($39/mes) - Za iskusnije vežbače.";
+      } else if (score.c === max) {
+        result = "Tvoj idealan plan je: \n\u{1F449} Napredni ($59/mes) - Za ozbiljne rezultate.";
+      } else {
+        result = "Tvoj idealan plan je: \n\u{1F449} Elitni ($99/mes) - Personalni pristup sa mentorstvom.";
+      }
+
+      document.getElementById('quizForm').style.display = 'none';
+      document.getElementById('result').innerText = result;
+      document.getElementById('result').style.display = 'block';
+    }
+
+    document.querySelectorAll('input[type=radio]').forEach(input => {
+      input.addEventListener('change', function () {
+        const name = this.name;
+        const number = parseInt(name.substring(1));
+        if (number < total) {
+          setTimeout(() => showQuestion(number + 1), 300);
+        } else {
+          setTimeout(() => submitQuiz(), 300);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
