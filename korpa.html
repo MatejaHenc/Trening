@@ -25,7 +25,7 @@
     <h1>Vaša korpa</h1>
     <div id="cart-items"></div>
     <div>
-        <strong>Ukupno: <span id="total-price">0</span> RSD</strong>
+        <strong>Ukupno: <span id="total-price">0</span> $ </strong>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -42,7 +42,7 @@
                 itemDiv.classList.add("cart-item");
 
                 const itemDetails = document.createElement("span");
-                itemDetails.textContent = `${item.name} - ${item.price} RSD`;
+                itemDetails.textContent = `${item.name} - ${item.price} $`;
                 itemDiv.appendChild(itemDetails);
 
                 const removeButton = document.createElement("button");
