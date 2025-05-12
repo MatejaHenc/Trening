@@ -58,7 +58,7 @@
 			<li>Osnovna ishrana</li>
 			<li>Email podrška</li>
 		  </ul>
-		  <button onclick="addToCart('Početni Plan', 19)">Odaberi</button>
+		  <button onclick="dodajUKorpu('Početni Plan', 19)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -71,7 +71,7 @@
 			<li>Detaljan plan ishrane</li>
 			<li>Podrška i analize</li>
 		  </ul>
-		  <button onclick="addToCart('Srednji nivo', 39)">Odaberi</button>
+		  <button onclick="dodajUKorpu('Srednji nivo', 39)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -84,7 +84,7 @@
 			<li>Napredna suplementacija</li>
 			<li>Prioritetna podrška</li>
 		  </ul>
-		  <button onclick="addToCart('Napredni Plan', 59)">Odaberi</button>
+		  <button onclick="dodajUKorpu('Napredni Plan', 59)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -97,7 +97,7 @@
 			<li>Personalizovana ishrana</li>
 			<li>Neograničena podrška</li>
 		  </ul>
-		  <button onclick="addToCart('Elitni Plan', 99)">Odaberi</button>
+		  <button onclick="dodajUKorpu('Elitni Plan', 99)">Odaberi</button>
 		</div>
 	  </div>
 	</section>
@@ -147,46 +147,27 @@
       </p>
     </div>
 
-   <script>
-  let cart = [];
-
-  function addToCart(name, price) {
-    cart.push({ name, price });
-    updateCart();
+  <script>
+  function dodajUKorpu(naziv, cena) {
+    const plan = { naziv, cena };
+    let korpa = JSON.parse(localStorage.getItem("korpa")) || [];
+    korpa = [plan]; // Zatvara prethodne i dodaje samo jedan
+    localStorage.setItem("korpa", JSON.stringify(korpa));
+    azurirajBrojStavki();
+    alert("Plan '" + naziv + "' dodat u korpu.");
   }
 
-  function updateCart() {
-    const cartCount = document.getElementById("cartCount");
-    const cartItems = document.getElementById("cartItems");
-    cartCount.textContent = cart.length;
-
-    cartItems.innerHTML = '';
-    cart.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.textContent = `${item.name} - $${item.price}`;
-      cartItems.appendChild(li);
-    });
+  function azurirajBrojStavki() {
+    const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
+    document.getElementById("broj-stavki").textContent = korpa.length;
   }
 
-  function clearCart() {
-    cart = [];
-    updateCart();
-    toggleCart(false);
-  }
-
-  function toggleCart(forceShow = null) {
-    const modal = document.getElementById("cartModal");
-    if (forceShow === true) {
-      modal.style.display = "block";
-    } else if (forceShow === false) {
-      modal.style.display = "none";
-    } else {
-      modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "block" : "none";
-    }
-  }
-
-  document.getElementById("cartBtn").addEventListener("click", toggleCart);
+  // Poziva se pri učitavanju
+  document.addEventListener("DOMContentLoaded", azurirajBrojStavki);
 </script>
+
+
+ 
 
 	
 
