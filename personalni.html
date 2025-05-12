@@ -161,8 +161,6 @@
         const planName = card.querySelector("h3").innerText;
         const priceText = card.querySelector(".plan-price").innerText;
         const price = parseInt(priceText.replace(/[^0-9]/g, ""));
-
-	price = price.toFixed(2);
         
         const selectedPlan = {
           name: planName,
