@@ -208,7 +208,9 @@
       const planName = button.getAttribute("data-name");
       const priceText = button.getAttribute("data-price");
       const price = parseFloat(priceText);
-
+	    
+      price = price.toFixed(2);
+	    
       const selectedPlan = {
         name: planName,
         price: price
