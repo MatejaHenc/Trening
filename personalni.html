@@ -33,6 +33,12 @@
 		  </nav>
 		</div>
 	 </header>
+
+	<div id="cartModal">
+	  <h5>Korpa</h5>
+	  <ul id="cartItems" class="list-unstyled mb-2"></ul>
+	  <button onclick="clearCart()" class="btn btn-sm btn-danger">Isprazni korpu</button>
+	</div>
 	
 	<section class="plans-section">
 	  <div class="plans-header">
@@ -52,7 +58,7 @@
 			<li>Osnovna ishrana</li>
 			<li>Email podrška</li>
 		  </ul>
-		  <button>Odaberi</button>
+		  <button onclick="dodajUKorpu('Početni Plan', 19)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -65,7 +71,7 @@
 			<li>Detaljan plan ishrane</li>
 			<li>Podrška i analize</li>
 		  </ul>
-		  <button>Odaberi</button>
+		  <button onclick="dodajUKorpu('Srednji nivo', 39)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -78,7 +84,7 @@
 			<li>Napredna suplementacija</li>
 			<li>Prioritetna podrška</li>
 		  </ul>
-		  <button>Odaberi</button>
+		  <button onclick="dodajUKorpu('Napredni Plan', 59)">Odaberi</button>
 		</div>
 
 		<div class="plan-card">
@@ -91,7 +97,7 @@
 			<li>Personalizovana ishrana</li>
 			<li>Neograničena podrška</li>
 		  </ul>
-		  <button>Odaberi</button>
+		  <button onclick="dodajUKorpu('Elitni Plan', 99)">Odaberi</button>
 		</div>
 	  </div>
 	</section>
@@ -140,6 +146,25 @@
         <a href="#" class="text-dark text-decoration-none ms-2">Terms of Service</a>
       </p>
     </div>
+
+   <script>
+  function dodajUKorpu(naziv, cena) {
+    const plan = { naziv, cena };
+    let korpa = JSON.parse(localStorage.getItem("korpa")) || [];
+    korpa = [plan]; // Zatvara prethodne i dodaje samo jedan
+    localStorage.setItem("korpa", JSON.stringify(korpa));
+    azurirajBrojStavki();
+    alert("Plan '" + naziv + "' dodat u korpu.");
+  }
+
+  function azurirajBrojStavki() {
+    const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
+    document.getElementById("broj-stavki").textContent = korpa.length;
+  }
+
+  // Poziva se pri učitavanju
+  document.addEventListener("DOMContentLoaded", azurirajBrojStavki);
+</script>
 
 	
 
