@@ -1,42 +1,75 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <title>Tvoja Korpa</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korpa</title>
+    <style>
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .cart-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body class="p-4">
-  <div class="container">
-    <h2 class="mb-4">Tvoja korpa</h2>
-    <div id="korpa-prikaz"></div>
-    <button class="btn btn-danger mt-3" onclick="obrisiKorpu()">Ukloni iz korpe</button>
-  </div>
+<body>
+    <h1>Vaša korpa</h1>
+    <div id="cart-items"></div>
+    <div>
+        <strong>Ukupno: <span id="total-price">0</span> RSD</strong>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Učitaj korpu iz localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  <script>
-    function prikaziKorpu() {
-      const korpa = JSON.parse(localStorage.getItem("korpa")) || [];
-      const prikaz = document.getElementById("korpa-prikaz");
+            // Prikazivanje stavki u korpi
+            const cartItemsContainer = document.getElementById("cart-items");
+            let totalPrice = 0;
 
-      if (korpa.length === 0) {
-        prikaz.innerHTML = "<p>Korpa je prazna.</p>";
-        return;
-      }
+            cart.forEach((item, index) => {
+                // Kreiraj HTML za stavku u korpi
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("cart-item");
 
-      const plan = korpa[0];
-      prikaz.innerHTML = `
-        <div class="card p-3">
-          <h4>${plan.naziv}</h4>
-          <p>Cena: $${plan.cena}/mes</p>
-        </div>
-      `;
-    }
+                const itemDetails = document.createElement("span");
+                itemDetails.textContent = `${item.name} - ${item.price} RSD`;
+                itemDiv.appendChild(itemDetails);
 
-    function obrisiKorpu() {
-      localStorage.removeItem("korpa");
-      location.reload();
-    }
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Ukloni";
+                removeButton.addEventListener("click", function () {
+                    // Ukloni stavku iz korpe
+                    cart.splice(index, 1);
+                    localStorage.setItem("cart", JSON.stringify(cart));
+                    itemDiv.remove();
+                    updateTotalPrice();
+                });
+                itemDiv.appendChild(removeButton);
 
-    prikaziKorpu();
-  </script>
+                cartItemsContainer.appendChild(itemDiv);
+
+                // Ažuriraj ukupnu cenu
+                totalPrice += item.price;
+            });
+
+            // Ažuriraj ukupnu cenu
+            function updateTotalPrice() {
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                document.getElementById("total-price").textContent = total;
+            }
+
+            updateTotalPrice();
+        });
+    </script>
 </body>
 </html>
