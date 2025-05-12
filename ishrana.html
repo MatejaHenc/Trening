@@ -207,8 +207,9 @@
       console.log("Dugme za dodavanje u korpu je kliknuto!");
       const planName = button.getAttribute("data-name");
       const priceText = button.getAttribute("data-price");
-      const price = parseFloat(priceText);
-	    
+      let price = parseFloat(priceText);
+
+      price = price.toFixed(2);
 	    
       const selectedPlan = {
         name: planName,
