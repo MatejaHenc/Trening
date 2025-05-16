@@ -12,13 +12,11 @@
 	<title>Adekvatna Ishrana</title>
 </head>
 <body>
-	<!-- Gornji crni bar -->
 	 <div class="top-bar">
 		<span>Nisi siguran koji je plan treninga prikladan za tebe?</span>
 		<a href="Kviz.html" class="quiz-btn">Odradi kviz i saznaj!</a>
 	 </div>
 
-	 <!-- Sticky header meni -->
 	 <header class="sticky-header">
 		<div class="container1">
 		  <div class="logo">
@@ -37,10 +35,10 @@
 	
 	
 	<div class="container-main">
-	 <div class="product-container">
-		<div class="product-image">
-			<img src="images/planishrane.png" alt="Ebook Cover">
-		</div>
+		<div class="product-container">
+			<div class="product-image">
+				<img src="images/planishrane.png" alt="Ebook Cover">
+			</div>
 
 		<div class="product-details">
 			<h1>Ultimativni Vodič Za Rekompoziciju Tela</h1>
@@ -59,7 +57,7 @@
 				<div><img src="images/moneyback.png"><p>Zagarantovan Povraćaj Novca</p></div>
 			</div>
 		</div>
-		</div>
+	</div>
 
 		<div class="product-description">
 			<h2>IZGRADITE MIŠIĆE I GUBITE MASTI U ISTO VREME</h2>
@@ -69,7 +67,7 @@
 			<p>
 				Ako želite da naučite kako da potpuno transformišete svoje telo dobijanjem mišića DOK gubite masnoću, ovo je najbolji zaista naučno zasnovan vodič za to!.
 			</p>
-	 </div>
+		</div>
 	</div>
 
 	
@@ -187,44 +185,44 @@
 	</div>
 	
 	<div class="text-center mt-4">
-      <p>© 2025 Mateja Henc Fitness. All Rights Reserved.</p>
-      <p>
-        <a href="#" class="text-dark text-decoration-none me-2">Privacy Policy</a> |
-        <a href="#" class="text-dark text-decoration-none ms-2">Terms of Service</a>
-      </p>
-    </div>
+      		<p>© 2025 Mateja Henc Fitness. All Rights Reserved.</p>
+      		<p>
+        		<a href="#" class="text-dark text-decoration-none me-2">Privacy Policy</a> |
+        		<a href="#" class="text-dark text-decoration-none ms-2">Terms of Service</a>
+      		</p>
+    	</div>
 
 	<script>
 	document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM is fully loaded.');
+  	console.log('DOM is fully loaded.');
 
-  const addToCartButtons = document.querySelectorAll(".add-to-cart");
-  console.log(addToCartButtons); // Proveri da li su dugmadi selektovani
+  	const addToCartButtons = document.querySelectorAll(".add-to-cart");
+  	console.log(addToCartButtons); // Proveri da li su dugmadi selektovani
   
-  addToCartButtons.forEach((button) => {
-    console.log('Dodato dugme:', button);
-    button.addEventListener("click", () => {
-      console.log("Dugme za dodavanje u korpu je kliknuto!");
-      const planName = button.getAttribute("data-name");
-      const priceText = button.getAttribute("data-price");
-      let price = parseFloat(priceText);
+  	addToCartButtons.forEach((button) => {
+    	console.log('Dodato dugme:', button);
+    	button.addEventListener("click", () => {
+      	console.log("Dugme za dodavanje u korpu je kliknuto!");
+      	const planName = button.getAttribute("data-name");
+      	const priceText = button.getAttribute("data-price");
+     	 let price = parseFloat(priceText);
 
-      price = price.toFixed(2);
+	 price = price.toFixed(2);
 	    
-      const selectedPlan = {
+      	const selectedPlan = {
         name: planName,
         price: price
-      };
+      	};
 
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(selectedPlan);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      	let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      	cart.push(selectedPlan);
+      	localStorage.setItem("cart", JSON.stringify(cart));
 
-      alert(`"${planName}" dodat u korpu.`);
-    });
-  });
-});
-</script>
+      	alert(`"${planName}" dodat u korpu.`);
+    	});
+        });
+	});
+	</script>
 	<script src="js/new 1.js"></script>
 	
 	</script>
