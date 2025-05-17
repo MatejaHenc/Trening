@@ -18,15 +18,13 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Učitaj korpu iz localStorage
+
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            // Prikazivanje stavki u korpi
             const cartItemsContainer = document.getElementById("cart-items");
             let totalPrice = 0;
 
             cart.forEach((item, index) => {
-                // Kreiraj HTML za stavku u korpi
                 const itemDiv = document.createElement("div");
                 itemDiv.classList.add("cart-item");
 
@@ -37,7 +35,7 @@
                 const removeButton = document.createElement("button");
                 removeButton.textContent = "Ukloni";
                 removeButton.addEventListener("click", function () {
-                    // Ukloni stavku iz korpe
+                
                     cart.splice(index, 1);
                     localStorage.setItem("cart", JSON.stringify(cart));
                     itemDiv.remove();
@@ -47,14 +45,14 @@
 
                 cartItemsContainer.appendChild(itemDiv);
 
-                // Ažuriraj ukupnu cenu
-                totalPrice += item.price;
+                totalPrice += parseFloat(item.price);
+
             });
 
-            // Ažuriraj ukupnu cenu
             function updateTotalPrice() {
-                const total = cart.reduce((sum, item) => sum + item.price, 0);
-                document.getElementById("total-price").textContent = total;
+                const total = cart.reduce((sum, item) => sum + parseFloat(item.price), 0);
+
+                document.getElementById("total-price").textContent = total.toFixed(2);
             }
 
             updateTotalPrice();
