@@ -288,7 +288,7 @@ header {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px; /* dovoljno za veći sadržaj */
+  max-height: 500px; 
   padding: 20px;
 }
 
@@ -297,7 +297,7 @@ header {
 }
 
 .faq-item.active .icon {
-  transform: rotate(45deg); /* "+" postaje "×" efekat */
+  transform: rotate(45deg); 
 }
 
 
